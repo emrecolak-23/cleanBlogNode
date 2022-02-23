@@ -2,10 +2,26 @@ const express = require('express');
 
 const app = express();
 
-const blog = { id: 1, title: "Blog title", description: "Blog description" }
+// Static File
+app.use(express.static('public'))
+
+// Template Engine
+app.set("view engine","ejs");
 
 app.get("/", (req,resp)=>{
-  resp.send(blog)
+  resp.render('index');
+})
+
+app.get("/about", (req,resp) =>{
+  resp.render('about');
+})
+
+app.get("/post", (req,resp) =>{
+  resp.render('post');
+})
+
+app.get("/add-post", (req,resp) =>{
+  resp.render('add_post');
 })
 
 const PORT = 4000;
