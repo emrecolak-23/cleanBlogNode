@@ -49,4 +49,11 @@ app.post("/post", async (req,resp) =>{
   resp.redirect('/');
 })
 
-
+app.get("/post/:id", async (req,resp) =>{
+  
+  const post = await Post.findById(req.params.id)
+  
+  resp.render('post', {
+    post
+  });
+})
