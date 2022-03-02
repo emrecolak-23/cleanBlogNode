@@ -29,6 +29,15 @@
           <p><%= post.detail%> </p>
           
         </div>
+        <div class="clearfix mb-3">
+          <a class="btn btn-primary float-right" href="/post/edit/<%= post._id %> ">Update</a>
+        </div>
+        <div class="clearfix">
+          <a class="btn btn-secondary float-right" href="/post/<%= post._id  %>?_method=DELETE "
+          onclick="return confirm('Arey you sure?')"
+          >Delete</a>
+        </div>
+
       </div>
     </div>
   </article>
